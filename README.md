@@ -10,7 +10,7 @@ Included Algorithms:
     * Adaboost Ensemnle method using Decision Trees
 * Clustering
     * KMeans
-    * Hierarchical Clustering
+    * Hierarchical Clustering (Min, Max, Group Average, Centroid)
 * Interpolation
     * Lagrange Interpolation
     * Natural Cubic Splines interpolation
