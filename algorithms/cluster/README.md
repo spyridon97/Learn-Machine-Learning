@@ -1,5 +1,5 @@
 #   Cluster
 
-This module includes:
+This package includes:
 *   K-Means Clustering
 *   Hierarchical Agglomerative Clustering (single, complete, average, group average, centroid)
