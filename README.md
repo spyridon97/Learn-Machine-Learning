@@ -10,7 +10,7 @@ This repository includes a collection of algorithms for Machine Learning.
 *   Linear Models
     *   Linear Regression
     *   Logistic Regression
-*   Clustering:
+*   Cluster:
     *   KMeans
     *   Hierarchical Agglomerative Clustering
 *   Trees:
