@@ -131,12 +131,3 @@ class AgglomerativeClustering:
         self.fit(x)
 
         return self.labels
-
-    def get_cluster_labels(self):
-        """
-        :brief: Gets cluster labels of each points.
-
-        :return: cluster labels of each point
-        """
-
-        return self.labels
