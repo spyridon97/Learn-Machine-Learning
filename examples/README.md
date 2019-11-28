@@ -1,5 +1,5 @@
 #   Examples
 
 This package includes: 
-*   examples of how to use the algorithms
+*   examples of for each algorithm
 *   datasets that are used for each example

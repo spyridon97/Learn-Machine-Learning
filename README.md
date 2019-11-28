@@ -26,7 +26,8 @@ This repository includes a collection of algorithms for Machine Learning.
         *   MinMaxScaler
 
 ## Examples
-Examples of how to use the algorithms
+*   examples of for each algorithm
+*   datasets that are used for each example
 
 ## Authors
 
