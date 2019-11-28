@@ -1,7 +1,7 @@
-# ML-Algorithms
+#   ML-Algorithms
 This repository includes a collection of algorithms for Machine Learning.
 
-## Algorithms
+##  Algorithms
 *   Interpolation:
     *   Lagrange
     *   Natural Cubic Splines
@@ -17,6 +17,16 @@ This repository includes a collection of algorithms for Machine Learning.
     *   Decision Tree 
 *   Ensemble: 
     *   AdaBoost
+
+##  Utils
+*   io:
+    *   read_dataset
+*   preprocessing:
+    *   normalization
+        *   MinMaxScaler
+
+## Examples
+Examples of how to use the algorithms
 
 ## Authors
 
