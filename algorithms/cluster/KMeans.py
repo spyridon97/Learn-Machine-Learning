@@ -19,7 +19,8 @@ class KMeans:
         """
 
         self.n_clusters = n_clusters
-        self.random_state = random_state
+        if random_state is not None:
+            random.seed(random_state)
         self.max_iter = max_iter
         self.centers = []
         self.labels = []
@@ -31,10 +32,6 @@ class KMeans:
 
         :param x: is the given data set
         """
-
-        # initialize randomness
-        if self.random_state is not None:
-            random.seed(self.random_state)
 
         self.centers = [random.choice(x) for _ in range(self.n_clusters)]
 
