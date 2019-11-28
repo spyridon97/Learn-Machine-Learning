@@ -1,17 +1,27 @@
-# MachineLearning
-This repository includes basic algorithms implementations for MachineLearning.
+# ML-Algorithms
+This repository includes a collection of algorithms for Machine Learning.
 
-Included Algorithms:
-* Regression Models
-    * Least Squares / Linear Regression (Least Squares with polynomial Degree = 1)
-    * Logistic Regression
-* Trees
-    * Decision Tree
-    * Adaboost Ensemnle method using Decision Trees
-* Clustering
-    * KMeans
-    * Hierarchical Aglomerative Clustering (Min, Max, Group Average, Centroid)
-* Interpolation
-    * Lagrange Interpolation
-    * Natural Cubic Splines interpolation
-    
+## Algorithms
+*   Interpolation:
+    *   Lagrange
+    *   Natural Cubic Splines
+*   Optimization:
+    *   Least Squares
+*   Linear Models
+    *   Linear Regression
+    *   Logistic Regression
+*   Clustering:
+    *   KMeans
+    *   Hierarchical Agglomerative Clustering
+*   Trees:
+    *   Decision Tree 
+*   Ensemble: 
+    *   AdaBoost
+
+## Authors
+
+* **Spyridon Tsalikis, email: spyridon97@hotmail.com**
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
