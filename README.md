@@ -1,7 +1,8 @@
 #   ML-Algorithms
 This repository includes a collection of algorithms for Machine Learning.
 
-##  Algorithms
+##  Contents   
+### Algorithms
 *   Interpolation:
     *   Lagrange
     *   Natural Cubic Splines
@@ -18,16 +19,31 @@ This repository includes a collection of algorithms for Machine Learning.
 *   Ensemble: 
     *   AdaBoost
 
-##  Utils
+### Datasets
+*   datasets that are used for each example
+
+### Examples
+*   Algorithm's examples
+
+### Utils
 *   io:
     *   read_dataset
+*   metrics:
+    *   accuracy score
+*   model_selection:
+    *   train_test_split
 *   preprocessing:
-    *   normalization
+    *   normalization:
         *   MinMaxScaler
 
-## Examples
-*   examples of for each algorithm
-*   datasets that are used for each example
+##  Dependencies
+*   math
+*   random
+*   collection
+*   pathlib
+
+##  Installation
+python3 -m pip install -e .
 
 ## Authors
 

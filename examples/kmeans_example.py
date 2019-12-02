@@ -6,7 +6,7 @@ from statistics import mean, median
 from algorithms.cluster import KMeans
 from utils.preprocessing import MinMaxScaler
 from utils.io import read_dataset
-from examples.datasets import datasets_path
+from datasets import datasets_path
 
 
 def main():
@@ -25,18 +25,18 @@ def main():
         # Calculate mean SSE for each k for 80 iterations
         sse_list = []
         for i in range(80):
-            cluster_method = KMeans(n_clusters=k)
-            cluster_method.fit(dataset)
-            sse_list.append(cluster_method.SSE)
+            cluster = KMeans(n_clusters=k)
+            cluster.fit(dataset)
+            sse_list.append(cluster.SSE)
         mean_SEE_per_k.append(mean(sse_list))
 
     # Compute Labels for k = 3 and select the median iteration based on its SSE. Iterations = 50
     sse_list = []
     labels = []
     for i in range(50):
-        cluster_method = KMeans(n_clusters=3)
-        labels.append(cluster_method.fit_predict(dataset))
-        sse_list.append(cluster_method.SSE)
+        cluster = KMeans(n_clusters=3)
+        labels.append(cluster.fit_predict(dataset))
+        sse_list.append(cluster.SSE)
 
     id_with_median_sse = sse_list.index(median(sse_list))
     labels = labels[id_with_median_sse]

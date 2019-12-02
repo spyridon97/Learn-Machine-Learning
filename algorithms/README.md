@@ -10,9 +10,9 @@ This package includes:
     *   Linear Regression
     *   Logistic Regression
 *   Cluster:
-    *   KMeans
-    *   Hierarchical Agglomerative Clustering
+    *   KMeans Clustering (handles empty clusters if the occur)
+    *   Hierarchical Agglomerative Clustering (single, complete, average, group average, centroid)
 *   Trees:
-    *   Decision Tree 
+    *   Decision Tree (Classifier and Regressor using CART algorithm) 
 *   Ensemble: 
     *   AdaBoost
