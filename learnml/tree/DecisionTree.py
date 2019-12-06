@@ -5,16 +5,16 @@ class DecisionTree:
 
     headers = []
 
-    def __init__(self, max_depth=float('inf'), min_size=1):
+    def __init__(self, max_depth=float('inf'), min_samples_split=2):
         """
         :brief: Trivial constructor.
 
-        :param max_depth: is the max depth of the tree.
-        :param min_size: is the min size for each node.
+        :param max_depth: is the max depth of the tree. Default infinite.
+        :param min_samples_split: is the minimum number of samples required to split an internal node. Default 2.
         """
 
         self.max_depth = max_depth
-        self.min_size = min_size
+        self.min_samples_split = min_samples_split
         self.root = None
 
     class DecisionNode:
@@ -91,7 +91,7 @@ class DecisionTree:
 
             return val >= self.value if self.is_numeric(val) else val == self.value
 
-        def __repr__(self):
+        def __str__(self):
             """
             :brief: This function helps in print a question in a readable format.
 
@@ -113,8 +113,8 @@ class DecisionTree:
         counts = self.class_counts(rows)
         impurity = 1
 
-        for lbl in counts:
-            prob_of_lbl = counts[lbl] / len(rows)
+        for label in counts:
+            prob_of_lbl = counts[label] / len(rows)
             impurity -= prob_of_lbl ** 2
 
         return impurity
@@ -258,13 +258,13 @@ class DecisionTree:
             return self.DecisionNode(question, true_leaf, false_leaf)
 
         # process left child
-        if len(true_rows) <= self.min_size:
+        if len(true_rows) <= self.min_samples_split:
             true_branch = self.Leaf(true_rows)
         else:
             true_branch = self.__build_tree(true_rows, depth + 1)
 
         # process right child
-        if len(false_rows) <= self.min_size:
+        if len(false_rows) <= self.min_samples_split:
             false_branch = self.Leaf(false_rows)
         else:
             false_branch = self.__build_tree(false_rows, depth + 1)
@@ -296,24 +296,25 @@ class DecisionTree:
         :param spacing: is the spacing that we want for printing,
         """
 
+        tree_string = ""
         # Base case: we've reached a leaf
         if isinstance(node, self.Leaf):
-            print(spacing + "Predict", node.predictions)
-            return ""
+            tree_string += spacing + "Predict " + str(node.predictions) + '\n'
+            return tree_string
 
         # Print the question at this node
-        print(spacing + str(node.question))
+        tree_string += spacing + str(node.question) + '\n'
 
         # Call this function recursively on the true branch
-        print(spacing + '--> True:')
-        self.__print_tree(node.true_branch, spacing + "    ")
+        tree_string += spacing + '--> True:' + '\n'
+        tree_string += self.__print_tree(node.true_branch, spacing + "    ")
 
         # Call this function recursively on the false branch
-        print(spacing + '--> False:')
-        self.__print_tree(node.false_branch, spacing + "    ")
-        return ""
+        tree_string += spacing + '--> False:' + '\n'
+        tree_string += self.__print_tree(node.false_branch, spacing + "    ")
+        return tree_string
 
-    def __repr__(self):
+    def __str__(self):
         """
         :brief: This function prints our Decision Tree Classifier.
         """
@@ -381,7 +382,7 @@ class DecisionTree:
         for prediction in predictions:
             total = sum(prediction.values()) * 1.0
             probabilities = {}
-            for lbl in prediction.keys():
-                probabilities[lbl] = str(int(prediction[lbl] / total * 100)) + "%"
+            for label in prediction.keys():
+                probabilities[label] = str(int(prediction[label] / total * 100)) + "%"
             predictions_probabilities.append(probabilities)
         return predictions_probabilities

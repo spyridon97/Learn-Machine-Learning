@@ -17,11 +17,9 @@ def main():
     # define_column_labels(labels)
 
     # we create the train = 70% dataset and the test = 30% dataset
-    print(len(dataset))
-    train_set, test_set = train_test_split(dataset, test_size=0.3)  # , shuffle=False)
-    print(len(train_set) + len(test_set))
+    train_set, test_set = train_test_split(dataset, test_size=0.3)
 
-    decision_tree = DecisionTree(max_depth=4, min_size=5)
+    decision_tree = DecisionTree(max_depth=4)#, min_samples_split=5)
     decision_tree.fit(train_set, labels)
     print(decision_tree)
     predictions = decision_tree.predict(test_set)
