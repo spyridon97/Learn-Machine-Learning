@@ -22,7 +22,7 @@ def train_test_split(dataset, test_size=0.3, random_state=None, shuffle=True):
         random.shuffle(dataset)
 
     # we assume that our train_set is 70% of the given dataset and our test_set is the 30% of the given dataset
-    train_set = dataset[:int((1 - test_size) * len(dataset)) - 1]
-    test_set = dataset[int((1 - test_size) * len(dataset)): len(dataset) - 1]
+    train_set = dataset[:int((1 - test_size) * len(dataset))]
+    test_set = dataset[int((1 - test_size) * len(dataset)): len(dataset)]
 
     return train_set, test_set
