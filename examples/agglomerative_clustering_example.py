@@ -2,9 +2,9 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 
-from algorithms.cluster import AgglomerativeClustering
-from utils.preprocessing import MinMaxScaler
-from utils.io import read_dataset
+from learnml.cluster import AgglomerativeClustering
+from learnml.preprocessing import MinMaxScaler
+from learnml.io import read_dataset
 from examples.datasets import datasets_path
 
 
@@ -13,7 +13,7 @@ def main():
     :brief: The main function executes the program.
     """
 
-    filename = os.path.join(datasets_path, 'AgglomerativeClustering.txt')
+    filename = os.path.join(datasets_path, 'AgglomerativeClustering.csv')
     dataset = read_dataset(filename)
     dataset = MinMaxScaler(dataset, min_value=0, max_value=1)
 

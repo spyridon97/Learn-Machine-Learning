@@ -1,10 +1,10 @@
 import os
 
-from algorithms.tree.DecisionTree import DecisionTree
-from utils.io import read_dataset
-from utils.metrics import accuracy_score
-from utils.model_selection import train_test_split
-from datasets import datasets_path
+from learnml.tree.DecisionTree import DecisionTree
+from learnml.io import read_dataset
+from learnml.metrics import accuracy_score
+from learnml.model_selection import train_test_split
+from examples.datasets import datasets_path
 
 
 def main():
@@ -14,11 +14,11 @@ def main():
 
     filename = os.path.join(datasets_path, 'heart.csv')
     dataset, labels = read_dataset(filename, header=True)
-    #define_column_labels(labels)
+    # define_column_labels(labels)
 
     # we create the train = 70% dataset and the test = 30% dataset
     print(len(dataset))
-    train_set, test_set = train_test_split(dataset, test_size=0.3)#, shuffle=False)
+    train_set, test_set = train_test_split(dataset, test_size=0.3)  # , shuffle=False)
     print(len(train_set) + len(test_set))
 
     decision_tree = DecisionTree(max_depth=4, min_size=5)

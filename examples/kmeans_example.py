@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 from statistics import mean, median
 
-from algorithms.cluster import KMeans
-from utils.preprocessing import MinMaxScaler
-from utils.io import read_dataset
-from datasets import datasets_path
+from learnml.cluster import KMeans
+from learnml.preprocessing import MinMaxScaler
+from learnml.io import read_dataset
+from examples.datasets import datasets_path
 
 
 def main():
@@ -14,7 +14,7 @@ def main():
     :brief: The main function executes the program.
     """
 
-    filename = os.path.join(datasets_path, 'KMeans.txt')
+    filename = os.path.join(datasets_path, 'KMeans.csv')
     dataset = read_dataset(filename)
     dataset = MinMaxScaler(dataset, min_value=0, max_value=1)
 
