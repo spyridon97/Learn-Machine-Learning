@@ -7,13 +7,10 @@ def accuracy_score(y_true, y_pred):
     :return: the accuracy
     """
 
-    # this is the last column of our test set which includes the results of each row
-    last_column_values = [row[-1] for row in y_true]
-
     # we check if the predictions were correct or not.
-    predictions_check = [i == j for i, j in zip(last_column_values, y_pred)]
+    predictions_check = [i == j for i, j in zip(y_true, y_pred)]
 
     # The accuracy is not a percentage. In case you want a percentage multiply it by 100.
-    accuracy = sum(predictions_check) / len(last_column_values)
+    accuracy = sum(predictions_check) / len(y_true)
 
     return accuracy

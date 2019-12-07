@@ -1,6 +1,6 @@
 import os
 
-from learnml.tree.DecisionTree import DecisionTree
+from learnml.tree import DecisionTree
 from learnml.io import read_dataset
 from learnml.metrics import accuracy_score
 from learnml.model_selection import train_test_split
@@ -13,18 +13,17 @@ def main():
     """
 
     filename = os.path.join(datasets_path, 'heart.csv')
-    dataset, labels = read_dataset(filename, header=True)
-    # define_column_labels(labels)
+    x, y, headers = read_dataset(filename, header=True, x_y=True)
 
     # we create the train = 70% dataset and the test = 30% dataset
-    train_set, test_set = train_test_split(dataset, test_size=0.3)
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3)
 
-    decision_tree = DecisionTree(max_depth=4)#, min_samples_split=5)
-    decision_tree.fit(train_set, labels)
+    decision_tree = DecisionTree(max_depth=4, min_samples_split=5)
+    decision_tree.fit(x_train, y_train, headers=headers)
     print(decision_tree)
-    predictions = decision_tree.predict(test_set)
-    accuracy = accuracy_score(test_set, predictions)
-    print("Accuracy of Decision Tree Classifier: {:.2f}% ".format(accuracy * 100))
+    predictions = decision_tree.predict(x_test)
+    accuracy = accuracy_score(y_test, predictions)
+    print("Accuracy of Decision Tree: {:.2f}% ".format(accuracy * 100))
 
 
 if __name__ == '__main__':
