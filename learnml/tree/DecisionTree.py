@@ -328,7 +328,7 @@ class DecisionTree:
 
         return self.__print_tree(self.root)
 
-    def __classify(self, x, node):
+    def __classification_probabilities(self, x, node):
         """
         :brief: This function predicts the result of a x using our decision tree.
 
@@ -344,9 +344,9 @@ class DecisionTree:
         # Decide whether to follow the true-branch or the false-branch.
         # Compare the feature / value stored in the node, to the example we're considering.
         if node.question.match(x):
-            return self.__classify(x, node.true_branch)
+            return self.__classification_probabilities(x, node.true_branch)
         else:
-            return self.__classify(x, node.false_branch)
+            return self.__classification_probabilities(x, node.false_branch)
 
     def classify(self, x):
         """
@@ -356,7 +356,11 @@ class DecisionTree:
         :return: the prediction of the decision tree for the given x.
         """
 
-        return self.__classify(x, self.root)
+        result = self.__classification_probabilities(x, self.root)
+        if len(result.keys()) > 1:
+            return max(result, key=result.get)
+        else:
+            return list(result.keys())[0]
 
     def predict(self, x_test):
         """
@@ -366,14 +370,7 @@ class DecisionTree:
         :return: the predictions of the decision_tree.
         """
 
-        predictions = []
-        for x in x_test:
-            if len(self.classify(x).keys()) > 1:
-                predictions.append(max(self.classify(x), key=self.classify(x).get))
-            else:
-                predictions.append(list(self.classify(x).keys())[0])
-
-        return predictions
+        return [self.classify(x) for x in x_test]
 
     def predict_probabilities(self, x_test):
         """
@@ -383,7 +380,7 @@ class DecisionTree:
         :return: the probabilities of the predictions of the decision tree.
         """
 
-        predictions = [self.classify(row) for row in x_test]
+        predictions = [self.__classification_probabilities(x, self.root) for x in x_test]
         predictions_probabilities = []
 
         for prediction in predictions:
