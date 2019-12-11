@@ -7,13 +7,13 @@ This repository includes a collection of algorithms to learn Machine Learning.
 This package includes:
 #### Algorithms
 *   Interpolation:
-    *   Lagrange
-    *   Natural Cubic Splines
+    *   Lagrange (work in progress)
+    *   Natural Cubic Splines (work in progress)
 *   Optimization:
-    *   Least Squares
+    *   Least Squares (work in progress)
 *   Linear Models
-    *   Linear Regression
-    *   Logistic Regression
+    *   Linear Regression (work in progress)
+    *   Logistic Regression (work in progress)
 *   Cluster:
     *   KMeans
     *   Hierarchical Agglomerative Clustering
