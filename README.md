@@ -49,7 +49,7 @@ python3 -m pip install -e .
 
 ## Authors
 
-* **Spyridon Tsalikis, email: spyridon97@hotmail.com**
+* **Spyridon Tsalikis**
 
 ## License
 
